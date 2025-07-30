@@ -1,5 +1,4 @@
 import { type FC, lazy, Suspense } from 'react';
-import LoadingSpinner from '@components/LoadingSpinner';
 import styles from './Home.module.less';
 
 const LazyWelcomeSection = lazy(() => import('../components/WelcomeSection'));
@@ -33,7 +32,7 @@ const Home: FC = () => {
         </div>
       </section>
 
-      <Suspense fallback={<LoadingSpinner text='Loading welcome section...' />}>
+      <Suspense fallback={<div>Loading...</div>}>
         <LazyWelcomeSection />
       </Suspense>
     </div>

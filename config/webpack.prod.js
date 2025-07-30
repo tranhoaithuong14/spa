@@ -37,17 +37,6 @@ export default merge(common, {
             },
           },
           {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  ['autoprefixer'],
-                ],
-              },
-              sourceMap: false,
-            },
-          },
-          {
             loader: 'less-loader',
             options: {
               sourceMap: false,
@@ -72,17 +61,6 @@ export default merge(common, {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: false,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  ['autoprefixer'],
-                ],
-              },
               sourceMap: false,
             },
           },

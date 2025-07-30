@@ -14,7 +14,9 @@
       "Bash(npm run test:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(npm run validate:*)"
+      "Bash(npm run validate:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run analyze:*)"
     ],
     "deny": []
   }

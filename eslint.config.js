@@ -19,7 +19,6 @@ export default [
         ecmaFeatures: {
           jsx: true,
         },
-        // project: true, // Disabled to avoid parsing issues
       },
       globals: {
         window: 'readonly',
@@ -111,7 +110,6 @@ export default [
       'no-duplicate-imports': 'error',
       'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1 }],
       'eol-last': 'error',
-      // 'comma-dangle': ['error', 'always-multiline'], // Handled by Prettier
     },
     settings: {
       react: {
@@ -126,24 +124,6 @@ export default [
     },
   },
   {
-    files: ['**/*.test.{ts,tsx}', '**/*.spec.{ts,tsx}'],
-    languageOptions: {
-      parser: typescriptParser,
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        ecmaFeatures: {
-          jsx: true,
-        },
-        // Remove project for test files since they're excluded from tsconfig
-      },
-    },
-    rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-      'no-console': 'off',
-    },
-  },
-  {
     ignores: [
       'dist/',
       'build/',
@@ -152,8 +132,6 @@ export default [
       'config/',
       '*.min.js',
       'coverage/',
-      '**/*.test.{ts,tsx}',
-      '**/*.spec.{ts,tsx}',
     ],
   },
 ];

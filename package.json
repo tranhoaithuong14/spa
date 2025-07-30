@@ -1,7 +1,7 @@
 {
   "name": "react-spa-production",
   "version": "1.0.0",
-  "description": "Production-ready React SPA with ABSOLUTE LATEST July 30, 2025 versions",
+  "description": "Production-ready React SPA with Webpack, TypeScript, and LESS",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -9,33 +9,22 @@
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
     "lint": "eslint src --fix",
     "lint:check": "eslint src",
-    "format": "prettier --write \"src/**/*.{ts,tsx,less,css,scss,json,md}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,less,css,scss,json,md}\"",
+    "format": "prettier --write \"src/**/*.{ts,tsx,less,css,json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,less,css,json,md}\"",
     "type-check": "tsc --noEmit",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:ui": "vitest --ui",
-    "test:coverage": "vitest run --coverage",
     "prepare": "husky",
-    "clean": "rimraf dist coverage .turbo",
-    "analyze": "cross-env ANALYZE=true npm run build && webpack-bundle-analyzer dist/stats.json",
-    "build:analyze": "cross-env ANALYZE=true npm run build",
-    "preview": "vite preview",
-    "dev:vite": "cross-env NODE_ENV=development vite",
-    "build:vite": "cross-env NODE_ENV=production vite build",
+    "clean": "rimraf dist",
+    "analyze": "cross-env ANALYZE=true npm run build",
     "start": "npm run dev",
-    "validate": "npm run type-check && npm run lint:check && npm run test && npm run build"
+    "validate": "npm run type-check && npm run lint:check && npm run build"
   },
   "keywords": [
     "react",
     "typescript",
     "webpack",
-    "vite",
     "less",
     "spa",
-    "july-30-2025",
-    "bleeding-edge",
-    "latest-versions"
+    "production"
   ],
   "author": "Frontend Architect",
   "license": "MIT",
@@ -45,81 +34,43 @@
     "react-router-dom": "^7.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.9",
-    "@babel/preset-env": "^7.25.9",
-    "@babel/preset-react": "^7.25.9",
-    "@babel/preset-typescript": "^7.25.9",
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
-    "@eslint/js": "^9.32.0",
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.0.1",
-    "@testing-library/user-event": "^14.5.2",
     "@types/node": "^22.10.1",
     "@types/react": "^19.1.1",
     "@types/react-dom": "^19.1.1",
     "@typescript-eslint/eslint-plugin": "^8.15.0",
     "@typescript-eslint/parser": "^8.15.0",
-    "@vitejs/plugin-react": "^4.3.3",
-    "@vitejs/plugin-react-swc": "^3.7.1",
-    "@vitest/coverage-v8": "^3.2.4",
-    "@vitest/ui": "^3.2.4",
-    "autoprefixer": "^10.4.20",
-    "babel-loader": "^9.2.1",
+    "@eslint/js": "^9.32.0",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
-    "dotenv-webpack": "^8.1.0",
-    "esbuild": "^0.24.0",
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.14",
-    "happy-dom": "^15.11.6",
     "html-webpack-plugin": "^5.6.3",
     "husky": "^9.1.7",
-    "jsdom": "^25.0.1",
     "less": "^4.2.1",
     "less-loader": "^12.2.0",
-    "lightningcss": "^1.28.1",
     "lint-staged": "^15.2.11",
     "mini-css-extract-plugin": "^2.9.2",
-    "msw": "^2.6.4",
-    "postcss": "^8.5.1",
-    "postcss-loader": "^8.1.1",
     "prettier": "^3.4.1",
     "rimraf": "^6.0.1",
-    "rollup": "^4.29.2",
-    "sass": "^1.82.0",
-    "sass-loader": "^16.0.3",
     "style-loader": "^4.0.0",
-    "swc-loader": "^0.2.6",
     "terser-webpack-plugin": "^5.3.11",
+    "ts-loader": "^9.5.1",
     "typescript": "^5.8.3",
-    "vite": "^7.0.6",
-    "vite-plugin-checker": "^0.8.0",
-    "vite-plugin-eslint": "^1.8.1",
-    "vite-plugin-pwa": "^0.21.1",
-    "vitest": "^3.2.4",
     "webpack": "^5.101.0",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.1.0",
-    "webpack-merge": "^6.0.1",
-    "workbox-webpack-plugin": "^7.1.0"
-  },
-  "peerDependencies": {
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "webpack-merge": "^6.0.1"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run type-check && npm run lint:check && npm run test"
+      "pre-push": "npm run type-check && npm run lint:check"
     }
   },
   "lint-staged": {
@@ -127,7 +78,7 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "src/**/*.{less,css,scss,json}": [
+    "src/**/*.{less,css,json}": [
       "prettier --write"
     ]
   },
@@ -139,14 +90,7 @@
     "not ie <= 11"
   ],
   "engines": {
-    "node": ">=22.0.0",
-    "npm": ">=10.8.0",
-    "pnpm": ">=9.0.0",
-    "yarn": ">=4.0.0"
-  },
-  "packageManager": "npm@10.8.3",
-  "volta": {
-    "node": "22.11.0",
-    "npm": "10.8.3"
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }

@@ -1,7 +1,6 @@
 import { type FC, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout } from '@components/Layout';
-import LoadingSpinner from '@components/LoadingSpinner';
 import { ROUTES } from '@utils/constants';
 import '@styles/global.less';
 
@@ -14,7 +13,7 @@ const App: FC = () => {
   return (
     <Router>
       <Layout>
-        <Suspense fallback={<LoadingSpinner text='Loading page...' />}>
+        <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path={ROUTES.HOME} element={<Home />} />
             <Route path={ROUTES.ABOUT} element={<About />} />

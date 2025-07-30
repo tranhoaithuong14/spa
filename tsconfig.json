@@ -1,12 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "ES2023",
+    "target": "ES2020",
     "lib": [
       "DOM",
       "DOM.Iterable",
-      "ES2023",
-      "WebWorker"
+      "ES2020"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -15,8 +14,8 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "moduleDetection": "force",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -42,7 +41,6 @@
     "noPropertyAccessFromIndexSignature": false,
     "allowImportingTsExtensions": false,
     "allowArbitraryExtensions": false,
-    "types": ["vite/client", "vitest/globals"],
     "baseUrl": "./src",
     "paths": {
       "@/*": ["*"],
@@ -59,20 +57,12 @@
     "src/**/*",
     "src/**/*.tsx",
     "src/**/*.ts",
-    "src/types/global.d.ts",
-    "config/**/*.js",
-    "eslint.config.js",
-    "vite.config.ts",
-    "vitest.config.ts"
+    "src/types/global.d.ts"
   ],
   "exclude": [
     "node_modules",
     "dist",
     "build",
-    "coverage",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "**/*.spec.ts",
-    "**/*.spec.tsx"
+    "coverage"
   ]
 }

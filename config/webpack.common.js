@@ -2,7 +2,6 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import Dotenv from 'dotenv-webpack';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,26 +26,13 @@ export default {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'ts-loader',
           options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react',
-              '@babel/preset-typescript',
-            ],
-          },
-        },
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+            transpileOnly: true,
+            configFile: 'tsconfig.json',
           },
         },
       },
@@ -84,15 +70,6 @@ export default {
         minifyCSS: true,
         minifyURLs: true,
       },
-    }),
-    new Dotenv({
-      path: path.resolve(__dirname, '../.env'),
-      safe: false,
-      allowEmptyValues: true,
-      systemvars: true,
-      silent: true,
-      defaults: false,
-      expand: true,
     }),
   ],
   optimization: {
