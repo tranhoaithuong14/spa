@@ -1,0 +1,181 @@
+@import '../styles/variables.less';
+@import '../styles/mixins.less';
+
+.contact {
+  .container();
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 @padding-md;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: @margin-xl;
+  color: @heading-color;
+  font-size: @font-size-xxl * 1.5;
+
+  @media (max-width: @screen-md) {
+    font-size: @font-size-xxl;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: @margin-xl * 2;
+  align-items: start;
+
+  @media (max-width: @screen-md) {
+    grid-template-columns: 1fr;
+    gap: @margin-xl;
+  }
+}
+
+.info {
+  h2 {
+    color: @primary-color;
+    margin-bottom: @margin-lg;
+  }
+
+  p {
+    color: @text-color-secondary;
+    line-height: 1.6;
+    margin-bottom: @margin-xl;
+  }
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: @margin-lg;
+}
+
+.detail {
+  h3 {
+    color: @heading-color;
+    margin-bottom: @margin-sm;
+    font-size: @font-size-base;
+    font-weight: @font-weight-medium;
+  }
+
+  p {
+    margin: 0;
+    color: @text-color;
+    font-size: @font-size-sm;
+  }
+}
+
+.form {
+  .card();
+  padding: @padding-xl;
+}
+
+.formGroup {
+  margin-bottom: @margin-lg;
+}
+
+.label {
+  display: block;
+  margin-bottom: @margin-sm;
+  color: @heading-color;
+  font-weight: @font-weight-medium;
+  font-size: @font-size-sm;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: @padding-md;
+  border: 1px solid @border-color;
+  border-radius: @border-radius-base;
+  font-size: @font-size-base;
+  .transition(all);
+
+  &:focus {
+    border-color: @primary-color;
+    box-shadow: 0 0 0 2px rgba(@primary-color, 0.1);
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: @background-color-light;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+.submitButton {
+  .button-reset();
+  background-color: @primary-color;
+  color: white;
+  padding: @padding-md @padding-xl;
+  border-radius: @border-radius-base;
+  font-size: @font-size-base;
+  font-weight: @font-weight-medium;
+  .transition(all);
+  width: 100%;
+
+  &:hover:not(:disabled) {
+    background-color: @primary-color-hover;
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    background-color: @primary-color-active;
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background-color: @text-color-disabled;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  &:focus {
+    .focus-outline();
+  }
+}
+
+.message {
+  margin-top: @margin-lg;
+  padding: @padding-md;
+  border-radius: @border-radius-base;
+  font-size: @font-size-sm;
+  text-align: center;
+
+  &.success {
+    background-color: fade(@success-color, 10%);
+    color: @success-color;
+    border: 1px solid fade(@success-color, 30%);
+  }
+
+  &.error {
+    background-color: fade(@error-color, 10%);
+    color: @error-color;
+    border: 1px solid fade(@error-color, 30%);
+  }
+}
+
+@media (max-width: @screen-sm) {
+  .form {
+    padding: @padding-lg;
+  }
+
+  .input,
+  .textarea {
+    padding: @padding-sm;
+  }
+
+  .submitButton {
+    padding: @padding-sm @padding-lg;
+  }
+}

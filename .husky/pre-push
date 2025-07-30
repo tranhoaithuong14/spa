@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+echo "🚀 Running pre-push hooks..."
+echo "📋 Type checking..."
+npm run type-check
+
+echo "🔍 Linting..."
+npm run lint:check
+
+echo "✅ All checks passed!"

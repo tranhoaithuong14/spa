@@ -1,0 +1,240 @@
+@import './variables.less';
+@import './mixins.less';
+
+// Global styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  margin: 0;
+  color: @text-color;
+  font-size: @font-size-base;
+  font-family: @font-family;
+  font-variant: tabular-nums;
+  line-height: @line-height-base;
+  background-color: @background-color;
+  font-feature-settings: 'tnum';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: @heading-color;
+  font-weight: @font-weight-medium;
+}
+
+h1 {
+  font-size: @font-size-xxl * 1.5;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: @font-size-xxl;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: @font-size-xl;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: @font-size-lg;
+  line-height: 1.4;
+}
+
+h5 {
+  font-size: @font-size-base;
+  line-height: 1.5;
+}
+
+h6 {
+  font-size: @font-size-sm;
+  line-height: 1.5;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+// Links
+a {
+  color: @primary-color;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  .transition(color);
+
+  &:hover {
+    color: @primary-color-hover;
+  }
+
+  &:active {
+    color: @primary-color-active;
+  }
+
+  &:focus {
+    .focus-outline();
+  }
+}
+
+// Lists
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding-left: 2em;
+}
+
+li {
+  margin-bottom: 0.25em;
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  border-style: none;
+}
+
+// Forms
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  cursor: pointer;
+
+  &:focus {
+    .focus-outline();
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+textarea {
+  appearance: none;
+  border: 1px solid @border-color;
+  border-radius: @border-radius-base;
+  padding: @padding-sm @padding-md;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  .transition(border-color);
+
+  &:focus {
+    border-color: @primary-color;
+    .focus-outline();
+  }
+
+  &:disabled {
+    background-color: @background-color-light;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 32px;
+}
+
+// Utility classes
+.sr-only {
+  .visually-hidden();
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-truncate {
+  .text-overflow();
+}
+
+.clearfix {
+  .clearfix();
+}
+
+// Responsive utilities
+@media (max-width: @screen-sm) {
+  .hide-xs {
+    display: none !important;
+  }
+}
+
+@media (min-width: @screen-sm) and (max-width: @screen-md) {
+  .hide-sm {
+    display: none !important;
+  }
+}
+
+@media (min-width: @screen-md) and (max-width: @screen-lg) {
+  .hide-md {
+    display: none !important;
+  }
+}
+
+@media (min-width: @screen-lg) {
+  .hide-lg {
+    display: none !important;
+  }
+}

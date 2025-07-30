@@ -1,0 +1,18 @@
+@import '../../styles/variables.less';
+@import '../../styles/mixins.less';
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding: @padding-lg 0;
+  min-height: calc(100vh - @layout-header-height - @layout-footer-height);
+
+  @media (max-width: @screen-sm) {
+    padding: @padding-md 0;
+  }
+}

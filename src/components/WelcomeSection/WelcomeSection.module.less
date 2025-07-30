@@ -1,0 +1,74 @@
+@import '../../styles/variables.less';
+@import '../../styles/mixins.less';
+
+.welcomeSection {
+  background: linear-gradient(
+    135deg,
+    @background-color-light 0%,
+    @background-color 100%
+  );
+  padding: @padding-xl 0;
+  margin: @margin-xl 0;
+}
+
+.container {
+  .container();
+  text-align: center;
+}
+
+.title {
+  font-size: @font-size-xxl * 1.2;
+  margin-bottom: @margin-lg;
+  color: @heading-color;
+
+  @media (max-width: @screen-md) {
+    font-size: @font-size-xl;
+  }
+}
+
+.description {
+  font-size: @font-size-lg;
+  color: @text-color-secondary;
+  max-width: 600px;
+  margin: 0 auto @margin-xl;
+  line-height: 1.6;
+
+  @media (max-width: @screen-md) {
+    font-size: @font-size-base;
+  }
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: @margin-lg;
+  margin-top: @margin-xl;
+}
+
+.highlight {
+  .card();
+  text-align: center;
+  padding: @padding-xl;
+  .transition(transform);
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  h3 {
+    margin: @margin-md 0 @margin-sm;
+    color: @heading-color;
+  }
+
+  p {
+    margin: 0;
+    color: @text-color-secondary;
+    font-size: @font-size-sm;
+  }
+}
+
+.icon {
+  font-size: @font-size-xxl * 1.5;
+  display: block;
+  margin-bottom: @margin-sm;
+}
